@@ -48,16 +48,16 @@ async def save_file(media):
             caption=media.caption.html if media.caption else None,
         )
     except ValidationError:
-        logger.exception('Error occurred while saving file in database ❌')
+        logger.exception('Une erreur s’est produite lors de l’enregistrement du fichier dans la base de données ❌')
         return False, 2
     else:
         try:
             await file.commit()
         except DuplicateKeyError:      
-            logger.warning(media.file_name + " is already saved in database 🚨")
+            logger.warning(media.file_name + " est déjà enregistré dans la base de données 🚨")
             return False, 0
         else:
-            logger.info(media.file_name + " is saved to database ✅")
+            logger.info(media.file_name + " est enregistré dans la base de données ✅")
             return True, 1
 
 
