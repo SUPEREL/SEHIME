@@ -83,7 +83,7 @@ async def del_all(message, group_id, title):
         mycol.drop()
         await message.edit_text(f"Tous les filtres de {title} ont été supprimés")
     except:
-        await message.edit_text("Couldn't remove all filters from group!")
+        await message.edit_text("Impossible de supprimer tous les filtres du groupe!")
         return
 
 
