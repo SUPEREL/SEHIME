@@ -43,9 +43,9 @@ async def start(client, message):
             InlineKeyboardButton('🍿 𝗠𝗼𝘃𝗶𝗲𝘀', url='https://t.me/SharClub')
             ],[
             InlineKeyboardButton('ℹ️ 𝐀𝐈𝐃𝐄𝐒', callback_data='help'),
-            InlineKeyboardButton('😊 𝐀𝐛𝐨𝐮𝐭', callback_data='about')
+            InlineKeyboardButton('😊 𝐀 𝐩𝐫𝐨𝐩𝐨𝐬', callback_data='about')
             ],[
-            InlineKeyboardButton('🌟 𝐑𝐚𝐭𝐞 𝐦𝐞', url=f"https://t.me/songs_movies/498"),
+            InlineKeyboardButton('🌟 𝗘𝘃𝗮𝗹𝘂𝗲𝘇-𝗺𝗼𝗶', url=f"https://t.me/PSP_GAMES_UNIVERS/4"),
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
@@ -59,34 +59,34 @@ async def start(client, message):
         try:
             invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL))
         except ChatAdminRequired:
-            logger.error("Make sure Bot is admin in Forcesub channel")
+            logger.error("Assurez-vous que Bot est administrateur dans le canal Forcesub")
             return
         btn = [
             [
                 InlineKeyboardButton(
-                    "🌸 𝐉𝐨𝐢𝐧 𝐨𝐮𝐫 𝐜𝐡𝐚𝐧𝐧𝐞𝐥", url=invite_link.invite_link
+                    "🌸 𝗥𝗲𝗷𝗼𝗶𝗴𝗻𝗲𝘇 𝗻𝗼𝘁𝗿𝗲 𝗰𝗵𝗮î𝗻𝗲", url=invite_link.invite_link
                 )
             ]
         ]
 
         if message.command[1] != "subscribe":
-            btn.append([InlineKeyboardButton(" 💫 𝐓𝐫𝐲 𝐚𝐠𝐚𝐢𝐧 💫", callback_data=f"checksub#{message.command[1]}")])
+            btn.append([InlineKeyboardButton(" 💫 𝚁𝚎𝚎𝚜𝚜𝚊𝚢𝚎𝚣 💫", callback_data=f"checksub#{message.command[1]}")])
         await client.send_message(
             chat_id=message.from_user.id,
-            text="**Please Join My Updates Channel to use this Bot!**",
+            text="**Veuillez rejoindre mon canal de mises à jour pour utiliser ce bot!**",
             reply_markup=InlineKeyboardMarkup(btn),
             parse_mode="markdown"
             )
         return
     if len(message.command) ==2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         buttons = [[
-            InlineKeyboardButton('🤙 𝐈𝐧𝐯𝐢𝐭𝐞 𝐲𝐨𝐮𝐫 𝐟𝐫𝐢𝐞𝐧𝐝𝐬 🤙', url=f'https://t.me/share/url?url=https://t.me/movie_ott')
+            InlineKeyboardButton('🤙 𝐈𝐧𝐯𝐢𝐭𝐞𝐳 𝐯𝐨𝐬 𝐚𝐦𝐢𝐬 🤙', url=f'https://t.me/share/url?url=https://t.me/movie_ott')
             ],[
-            InlineKeyboardButton('🔍 𝐒𝐞𝐚𝐫𝐜𝐡 𝐦𝐨𝐯𝐢𝐞𝐬', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('🍿 𝐦𝐨𝐯𝐢𝐞𝐬', url='https://t.me/movie_ott')
+            InlineKeyboardButton('🔍 𝐑𝐞𝐜𝐡𝐞𝐫𝐜𝐡𝐞𝐫 𝐝𝐞𝐬 𝗠𝗼𝘃𝗶𝗲𝘀', switch_inline_query_current_chat=''),
+            InlineKeyboardButton('🍿 𝗠𝗼𝘃𝗶𝗲𝘀', url='https://t.me/Sharclub')
             ],[
-            InlineKeyboardButton('ℹ️ 𝐇𝐞𝐥𝐩', callback_data='help'),
-            InlineKeyboardButton('😊 𝐀𝐛𝐨𝐮𝐭', callback_data='about')
+            InlineKeyboardButton('ℹ️ 𝐀𝐈𝐃𝐄𝐒', callback_data='help'),
+            InlineKeyboardButton('😊 𝐀 𝐩𝐫𝐨𝐩𝐨𝐬', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
@@ -99,7 +99,7 @@ async def start(client, message):
     file_id = message.command[1]
     files_ = await get_file_details(file_id)
     if not files_:
-        return await message.reply('No such file exist.')
+        return await message.reply('Fichier non Trouvé.')
     files = files_[0]
     title = files.file_name
     size=get_size(files.file_size)
@@ -130,7 +130,7 @@ async def channel_info(bot, message):
     else:
         raise ValueError("Unexpected type of CHANNELS")
 
-    text = '📑 **Indexed channels/groups**\n'
+    text = '📑 **Canaux/groupes indexés**\n'
     for channel in channels:
         chat = await bot.get_chat(channel)
         if chat.username:
@@ -163,9 +163,9 @@ async def delete(bot, message):
     """Delete file from database"""
     reply = message.reply_to_message
     if reply and reply.media:
-        msg = await message.reply("Processing...⏳", quote=True)
+        msg = await message.reply("Traitement...⏳", quote=True)
     else:
-        await message.reply('Reply to file with /delete which you want to delete', quote=True)
+        await message.reply('Répondre au fichier avec /delete Ce que vous souhaitez supprimer', quote=True)
         return
 
     for file_type in ("document", "video", "audio"):
@@ -173,7 +173,7 @@ async def delete(bot, message):
         if media is not None:
             break
     else:
-        await msg.edit('This is not supported file format')
+        await msg.edit('Ce format de fichier n’est pas pris en charge')
         return
     
     file_id, file_ref = unpack_new_file_id(media.file_id)
@@ -182,7 +182,7 @@ async def delete(bot, message):
         '_id': file_id,
     })
     if result.deleted_count:
-        await msg.edit('File is successfully deleted from database')
+        await msg.edit('Le fichier est supprimé de la base de données avec succès')
     else:
         file_name = re.sub(r"(_|\-|\.|\+)", " ", str(media.file_name))
         result = await Media.collection.delete_one({
@@ -191,7 +191,7 @@ async def delete(bot, message):
             'mime_type': media.mime_type
             })
         if result.deleted_count:
-            await msg.edit('File is successfully deleted from database')
+            await msg.edit('Le fichier est supprimé de la base de données avec succès')
         else:
             # files indexed before https://github.com/EvamariaTG/EvaMaria/commit/f3d2a1bcb155faf44178e5d7a685a1b533e714bf#diff-86b613edf1748372103e94cacff3b578b36b698ef9c16817bb98fe9ef22fb669R39 
             # have original file name.
@@ -201,25 +201,25 @@ async def delete(bot, message):
                 'mime_type': media.mime_type
             })
             if result.deleted_count:
-                await msg.edit('File is successfully deleted from database')
+                await msg.edit('Le fichier est supprimé de la base de données avec succès')
             else:
-                await msg.edit('File not found in database')
+                await msg.edit('Fichier introuvable dans la base de données')
 
 
 @Client.on_message(filters.command('deleteall') & filters.user(ADMINS))
 async def delete_all_index(bot, message):
     await message.reply_text(
-        'This will delete all indexed files.\nDo you want to continue??',
+        'Cela supprimera tous les fichiers indexés.\nVoulez-vous continuer??',
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        text="YES", callback_data="autofilter_delete"
+                        text="OUI", callback_data="autofilter_delete"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        text="CANCEL", callback_data="close_data"
+                        text="ANNULER", callback_data="close_data"
                     )
                 ],
             ]
@@ -232,4 +232,4 @@ async def delete_all_index(bot, message):
 async def delete_all_index_confirm(bot, message):
     await Media.collection.drop()
     await message.answer()
-    await message.message.edit('Succesfully Deleted All The Indexed Files.')
+    await message.message.edit('Suppression réussie de tous les fichiers indexés.')
