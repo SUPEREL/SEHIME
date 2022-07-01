@@ -18,10 +18,10 @@ async def start(client, message):
     if message.chat.type in ['group', 'supergroup']:
         buttons = [
             [
-                InlineKeyboardButton('🍿 𝐦𝐨𝐯𝐢𝐞𝐬', url='https://t.me/movie_ott')
+                InlineKeyboardButton('🍿 𝗠𝗢𝗩𝗜𝗘𝗦', url='https://t.me/SharClub')
             ],
             [
-                InlineKeyboardButton('ℹ️ 𝐇𝐞𝐥𝐩', url=f"https://t.me/{temp.U_NAME}?start=help"),
+                InlineKeyboardButton('ℹ️ 𝐀𝐈𝐃𝐄𝐒', url=f"https://t.me/{temp.U_NAME}?start=help"),
             ]
             ]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -37,12 +37,12 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-            InlineKeyboardButton('🤙 𝐈𝐧𝐯𝐢𝐭𝐞 𝐲𝐨𝐮𝐫 𝐟𝐫𝐢𝐞𝐧𝐝𝐬 🤙', url=f'https://t.me/share/url?url=https://t.me/movie_ott')
+            InlineKeyboardButton('🤙 𝐈𝐧𝐯𝐢𝐭𝐞𝐳 𝐯𝐨𝐬 𝐚𝐦𝐢𝐬 🤙', url=f'https://t.me/share/url?url=https://t.me/SharClub')
             ],[
-            InlineKeyboardButton('🔍 𝐒𝐞𝐚𝐫𝐜𝐡 𝐦𝐨𝐯𝐢𝐞𝐬', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('🍿 𝐦𝐨𝐯𝐢𝐞𝐬', url='https://t.me/movie_ott')
+            InlineKeyboardButton('🔍 𝐑𝐞𝐜𝐡𝐞𝐫𝐜𝐡𝐞𝐫 𝐝𝐞𝐬 𝗠𝗼𝘃𝗶𝗲𝘀', switch_inline_query_current_chat=''),
+            InlineKeyboardButton('🍿 𝗠𝗼𝘃𝗶𝗲𝘀', url='https://t.me/SharClub')
             ],[
-            InlineKeyboardButton('ℹ️ 𝐇𝐞𝐥𝐩', callback_data='help'),
+            InlineKeyboardButton('ℹ️ 𝐀𝐈𝐃𝐄𝐒', callback_data='help'),
             InlineKeyboardButton('😊 𝐀𝐛𝐨𝐮𝐭', callback_data='about')
             ],[
             InlineKeyboardButton('🌟 𝐑𝐚𝐭𝐞 𝐦𝐞', url=f"https://t.me/songs_movies/498"),
