@@ -31,7 +31,7 @@ async def add_connection(group_id, user_id):
             mycol.insert_one(data)
             return True
         except:
-            print('Some error occured!')
+            print('Une erreur s’est produite!')
 
     else:
         try:
@@ -44,7 +44,7 @@ async def add_connection(group_id, user_id):
             )
             return True
         except:
-            print('Some error occured!')
+            print('Une erreur s’est produite!')
 
         
 async def active_connection(user_id):
